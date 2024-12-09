@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import {existsSync, mkdirSync, writeFileSync} from 'node:fs';
-import {argv, cwd, exit} from 'node:process';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { argv, cwd, exit } from 'node:process';
 
 const args = argv.slice(2);
-const params = {day: ''};
+const params = { day: '' };
 
 while (args.length > 0) {
   const key = args.shift();
@@ -19,14 +19,14 @@ if (!params.day) {
   exit(1);
 }
 
-const createFolder = (dir) => {
+const createFolder = dir => {
   dir = cwd() + '/' + dir;
-  if (!existsSync(dir)) mkdirSync(dir)
+  if (!existsSync(dir)) mkdirSync(dir);
 };
 const createFile = (path, content) => {
   path = cwd() + '/' + path;
   if (!existsSync(path)) writeFileSync(path, content);
-}
+};
 
 const unitTestTemplate = (day, part) => `
 import { Part${part === 1 ? 'One' : 'Two'} } from '@src/day-${day}/part-${part === 1 ? 'one' : 'two'}';
@@ -34,7 +34,7 @@ import { expect, it, describe } from 'vitest';
 import { readFileSync } from 'fs';
 import { cwd } from 'node:process';
 
-const path = cwd() + '@src/day-${day}/input.txt';
+const path = cwd() + '/src/day-${day}/input.txt';
 const input = readFileSync(path, 'utf-8');
 const example = \`aa.bb.cc\`;
 
@@ -60,7 +60,7 @@ describe.skip('Day ${day} - Part ${part}', () => {
 
 `;
 
-const solutionTemplate = (part) => `
+const solutionTemplate = part => `
 import type { Solution } from '@src/interfaces/solution';
 
 export class Part${part} implements Solution<number> {
@@ -75,7 +75,7 @@ export class Part${part} implements Solution<number> {
   }
 }
 
-`
+`;
 
 try {
   createFolder(`src/day-${params.day}`);
