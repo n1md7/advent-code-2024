@@ -1,0 +1,44 @@
+{
+  "name": "advent-code-2023",
+  "private": true,
+  "description": "Advent of Code 2023",
+  "author": {
+    "name": "Harry Kodua",
+    "email": "b.kodua@gmail.com",
+    "url": "https://github.com/n1md7"
+  },
+  "license": "MIT",
+  "main": "dist/main.js",
+  "bugs": {
+    "url": "https://github.com/n1md7/advent-code-2023"
+  },
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --mode=test --watch",
+    "test:ci": "vitest --mode=test --no-watch",
+    "format": "npx lint-staged",
+    "husky": "husky install",
+    "setup": "node src/index.mjs --day "
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "3.0.3",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vitest": "^0.34.6"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "engines": {
+    "node": "20",
+    "npm": ">=10"
+  },
+  "engineStrict": true,
+  "dependencies": {
+    "@datastructures-js/priority-queue": "^6.3.0"
+  }
+}
