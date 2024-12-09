@@ -1,16 +1,18 @@
 ### Advent of Code 2024
 
-Install dependencies
+Pre-requisites:
+- Bun runtime (v1.x.x) - [Bun installation](https://bun.sh/docs/installation)
+
+#### Install dependencies
 
 ```bash
-nvm use
-npm i
+bun i
 ```
 
-Create a new day setup by running
+#### Create a new day setup by running
 
 ```bash
-npm run setup -- <day>
+bun run setup -- <day>
 ```
 
 #### My progress

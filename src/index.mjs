@@ -29,12 +29,12 @@ const createFile = (path, content) => {
 }
 
 const unitTestTemplate = (day, part) => `
-import { Part${part === 1 ? 'One' : 'Two'} } from '/src/day-${day}/part-${part === 1 ? 'one' : 'two'}';
+import { Part${part === 1 ? 'One' : 'Two'} } from '@src/day-${day}/part-${part === 1 ? 'one' : 'two'}';
 import { expect, it, describe } from 'vitest';
 import { readFileSync } from 'fs';
 import { cwd } from 'node:process';
 
-const path = cwd() + '/src/day-${day}/input.txt';
+const path = cwd() + '@src/day-${day}/input.txt';
 const input = readFileSync(path, 'utf-8');
 const example = \`aa.bb.cc\`;
 
@@ -61,7 +61,7 @@ describe.skip('Day ${day} - Part ${part}', () => {
 `;
 
 const solutionTemplate = (part) => `
-import { Solution } from '/src/interfaces/solution';
+import type { Solution } from '@src/interfaces/solution';
 
 export class Part${part} implements Solution<number> {
   private readonly input: string[];
