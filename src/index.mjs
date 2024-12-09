@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {existsSync, mkdirSync, writeFileSync} from 'fs';
+import {existsSync, mkdirSync, writeFileSync} from 'node:fs';
 import {argv, cwd, exit} from 'node:process';
 
 const args = argv.slice(2);
