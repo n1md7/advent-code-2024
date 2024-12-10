@@ -16,4 +16,8 @@ export class Value<T = unknown> {
   valueOf() {
     return this.value;
   }
+
+  [Symbol.toPrimitive]() {
+    return this.value;
+  }
 }

@@ -1,21 +1,27 @@
-
 import { PartTwo } from '@src/day-02/part-two';
 import { expect, it, describe } from 'vitest';
 import { readFileSync } from 'fs';
 import { cwd } from 'node:process';
 
-const path = cwd() + '@src/day-02/input.txt';
+const path = cwd() + '/src/day-02/input.txt';
 const input = readFileSync(path, 'utf-8');
-const example = `aa.bb.cc`;
+const example = `
+7 6 4 2 1
+1 2 7 8 9
+9 7 6 2 1
+1 3 2 4 5
+8 6 4 4 1
+1 3 6 7 9
+`;
 
-describe.skip('Day 02 - Part 2', () => {
+describe('Day 02 - Part 2', () => {
   it('should verify example input', () => {
     const payload = example.trim();
     const partOne = new PartTwo(payload);
 
     const result = partOne.solve();
 
-    expect(result).toBe(0);
+    expect(result).toBe(4);
   });
 
   it('should verify real input', () => {
@@ -24,7 +30,6 @@ describe.skip('Day 02 - Part 2', () => {
 
     const result = partOne.solve();
 
-    expect(result).toBe(100);
+    expect(result).toBe(373);
   });
 });
-

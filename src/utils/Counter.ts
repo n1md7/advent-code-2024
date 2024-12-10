@@ -1,8 +1,10 @@
 export class Counter {
-  private count: number = 0;
+  private count: number;
+  private readonly threshold: number;
 
-  constructor(value: number) {
+  constructor(value: number, threshold: number = Number.MAX_SAFE_INTEGER) {
     this.count = value;
+    this.threshold = threshold;
   }
 
   get val() {
@@ -37,7 +39,15 @@ export class Counter {
     this.count = value;
   }
 
-  equals(value: number) {
+  equals(value: number | Counter) {
     return this.count === value;
+  }
+
+  thresholdReached() {
+    return this.count >= this.threshold;
+  }
+
+  [Symbol.toPrimitive]() {
+    return this.count;
   }
 }
